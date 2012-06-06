@@ -1,3 +1,2 @@
- jQuery() -> 
-  $ = jQuery
-  
+jQuery($) -> 
+  $('#login-form').
