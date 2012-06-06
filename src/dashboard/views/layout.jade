@@ -1,6 +1,71 @@
-!!!
-html
+doctype 5
+html(lang="en")
   head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body!= body
+    block css 
+      link(rel='stylesheet', href='/bootstrap/less/bootstrap.css')
+      link(rel='stylesheet', href='/css/style.css')      
+    
+    block scripts 
+      script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+      script
+        window.jQuery || document.write("<script src='/js/jquery.min.js'>\\\\x3C/script>");
+        
+      script(src='/bootstrap/js/bootstrap-modal.js')
+      script(src='/bootstrap/js/bootstrap-alert.js')      
+      script(src='/bootstrap/js/bootstrap-button.js')            
+      script(src='/bootstrap/js/bootstrap-typeahead.js')
+      script(src='/bootstrap/js/bootstrap-popover.js')
+      script(src='/bootstrap/js/bootstrap-dropdown.js')      
+      
+      script(src='/js/login.js')
+        
+    
+  body 
+  
+    div(class="navbar navbar-fixed-top")
+      .navbar-inner
+        .container
+          block main-menu 
+            a.brand(href="#") ELCA ux-web 
+            ul(class='nav pull-left')
+              li.dropdown
+                a.active(href="#home") Home
+                
+            ul(class='nav pull-right')            
+              li.dropdown
+                a(href="#login-form", data-toggle='modal') login
+                
+  
+    .container
+      != body 
+      
+    
+    div#hidden-elements     
+      div#login-form(class='hide modal')
+
+          div.modal-header
+            button(type='button', class='close', data-dismiss='modal') x
+            h3 Login
+        
+          div.modal-body 
+            #error-message
+          
+            form#login-form(name='login-form', class='form-horizontal')
+              .control-group
+                label.control-label(for='login-form-login') username
+                .controls
+                  input#login-form-login(name='login', type='text', placeholder='your login', class='input-xlarge')
+                  
+              .control-group                
+                label.control-label(for='login-form-password') password
+                .controls
+                  input#login-form-password(name='password', type='password', placeholder='your password', class='input-xlarge')
+        
+          div.modal-footer 
+            a(href='#', class='btn', data-dismiss='modal') Cancel
+            a(href='#', class='btn btn-primary') Login 
+        
+        
+   
