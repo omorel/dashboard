@@ -7,7 +7,9 @@ generate_salt = (length=32) ->
     String.fromCharCode((rnd % 34) + 33)
     
   (generate_letter() for i in [1..length])
-
+  
+generate_password = (password, user_salt, main_salt) -> 
+  console.log HashGenerator.hex (password + user_salt + main_salt) 
 
 UserSchema = new mongoose.Schema 
   firstname: 
@@ -47,6 +49,8 @@ UserSchema = new mongoose.Schema
 User = mongoose.model 'User', UserSchema 
 
 
+
 module.exports = 
   User: User 
   UserSchema: UserSchema
+  generate_password: generate_password
