@@ -1,4 +1,4 @@
-<project name="dashboard" target="install" basedir=".">
+<project name="dashboard" default="deploy" basedir=".">
 	<target name="deploy">
 		<mkdir dir="/var/www/node.js"/>
 		<mkdir dir="/var/www/node.js/dashboard"/>		
