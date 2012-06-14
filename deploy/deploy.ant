@@ -1,0 +1,10 @@
+<project name="dashboard" target="install" basedir=".">
+	<target name="deploy">
+		<mkdir dir="/var/www/node.js"/>
+		<mkdir dir="/var/www/node.js/dashboard"/>		
+		
+		<copy todir="/var/www/node.js/dashboard">
+			<fileset dir="../src/dashboard" />
+		</copy>
+	</target>
+</project>
